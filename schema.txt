@@ -1,0 +1,40 @@
+CREATE TABLE buildingManager (
+  managerId SERIAL PRIMARY KEY,
+  firstName text,
+  lastName text,
+  phoneNum Text,
+  email Text
+);
+
+CREATE TABLE tenants (
+  tenantId SERIAL PRIMARY KEY ,
+  tenantPin INTEGER,
+  firstName TEXT,
+  LastName TEXT,
+  roomNumber INTEGER,
+  managerId INTEGER REFERENCES buildingManager(managerId),
+  isActive Integer
+);
+
+CREATE TABLE NotificationToTenant (
+  notification Text,
+  tenantId INTEGER
+);
+
+CREATE TABLE Transaction(
+  transactionId SERIAL PRIMARY KEY,
+  tenantId INTEGER REFERENCES tenants (tenantId),
+  amount INTEGER ,
+  date TEXT,
+  type INTEGER,
+  runningBalance INTEGER 
+);
+
+CREATE TABLE NotifiyManager (
+  NotificationId SERIAL PRIMARY KEY ,
+  typeOfNotification INTEGER,
+  Notification TEXT,
+  tenantId INTEGER REFERENCES tenants (tenantId)
+);
+
+
