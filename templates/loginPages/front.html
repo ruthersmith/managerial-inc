@@ -1,0 +1,14 @@
+{% extends "front_layout.html" %}
+{%block form%}
+      <div class="front-style">
+
+          <form class="mb-3" action="{{url_for('loginTenant')}}" method="">
+            <button type="submit" class="btn btn-primary btn-lg btn-block front-btn-color">Tenant login</button>
+          </form>
+
+          <form class="" action="{{url_for('loginManager')}}" method="">
+            <button type="submit" class="btn btn-primary btn-lg btn-block front-btn-color">Manager login</button>
+          </form>
+
+      </div>
+ {%endblock%}

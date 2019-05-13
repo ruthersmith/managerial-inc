@@ -3,7 +3,8 @@ CREATE TABLE buildingManager (
   firstName text,
   lastName text,
   phoneNum Text,
-  email Text
+  email Text,
+  password Text
 );
 
 CREATE TABLE tenants (

@@ -4,10 +4,13 @@ $ set FLASK_APP=application.py
 $ set FLASK_DEBUG=1
 $ python -m flask run
 '''
+import helpers
+
 from flask import Flask, session,render_template,request,url_for
 from flask_session import Session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
+
 
 app = Flask(__name__)
 
@@ -29,4 +32,40 @@ db = scoped_session(sessionmaker(bind=engine))
 @app.route("/")
 def index():
     print(session)
-    return render_template('front.html')
+    return render_template('loginPages/front.html')
+
+@app.route("/login/manager")
+def loginManager():
+    return render_template('loginPages/manager_login.html')
+
+@app.route("/login/tenant")
+def loginTenant():
+    return render_template('loginPages/tenant_login.html')
+
+@app.route("/manager/create")
+def createManager():
+    return render_template('loginPages/create_manager.html')
+
+@app.route("/manager/create",methods = ["POST"])
+def managerDashboard():
+    #check to see if we are creating a manager 
+    creatingManager = int(request.form.get("createManager"))
+    if creatingManager == 1:
+        managerId = int(helpers.createManager(db,request))
+    else:
+        managerId = int(request.form.get("manager_id"))
+   
+    password = request.form.get("manager_pass")
+    manager = helpers.authenticateManager(db,managerId,password)
+    
+    if(len(manager) == 0):
+        return"<h1>ERROR:Failed to authenticate</h1>"
+    else:
+        session['manager_info'] = manager[0]
+        return render_template('dashboards/manager_dashboard.html')
+    
+
+
+
+
+

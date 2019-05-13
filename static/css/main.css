@@ -1,0 +1,25 @@
+.bg-color{
+  background-color: #2a9d8f;
+}
+
+.front-style{
+  position: absolute;
+  top: 30vh;
+}
+
+.front-btn-color{
+  background-color:#f4a261;
+}
+.form-container{
+  position: absolute;
+  top: 15vh;
+  background:#fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000;
+}
+
+li {
+  border: 2px solid green;
+  margin-left: 5px;
+}
