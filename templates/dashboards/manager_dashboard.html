@@ -7,33 +7,47 @@
     <h1 class="navbar-brand" href="#">Managerial Inc</h1>
   </nav>
 
-  <div class="container" style="background-color:lightgrey">
-    <div class="row ">
-      <div class="col-12 mt-2">
-        <div class="col-12" style="background-color:white">
-          <ul class="nav nav-tabs" style="background-color:white">
-            <li class="active pr-1 pb-2 "><a data-toggle="tab" href="#home">Home</a></li>
-            <li class="active pr-1 pb-2"><a data-toggle="tab" href="#menu1">Add New Tenant</a></li>
-            <li class="active pr-1 pb-2"><a data-toggle="tab" href="#menu2">Send Safety Reminders </a></li>
-            <li class="active pr-1 pb-2"><a data-toggle="tab" href="#menu2">View Tenants</a></li>
-            <li class="active pr-1 pb-2"><a data-toggle="tab" href="#menu2">Manage Building</a></li>
-          </ul>
-        </div>
+  <div class="container-fluid mt-3">
 
+    <div class="row m-3" style="background-color:white">
 
-        <div class="tab-content">
-          <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            <p>Some content.</p>
+      <div class="col-2" style="">
+        <ul class="nav nav-pills flex-column" style="">
+          <li class="active pr-1 pb-2 " active><a data-toggle="tab" href="#home">Home</a></li>
+          <li class="pr-1 pb-2"><a data-toggle="tab" href="#addTenant">Add New Tenant</a></li>
+          <li class="pr-1 pb-2"><a data-toggle="tab" href="#safety">Send Safety Reminders </a></li>
+          <li class="pr-1 pb-2"><a data-toggle="tab" href="#view_tenant">View Tenants</a></li>
+          <li class="pr-1 pb-2"><a data-toggle="tab" href="#manage_building">Manage Building</a></li>
+        </ul>
+      </div>
+
+      <div class="col-10 mt-2">
+
+        <div class="tab-content navbar navbar-expand-lg">
+
+          <div id="home" class="tab-pane fade in show active">
+            {% include 'dashboards/manager_home.html' %}
           </div>
-          <div id="menu1" class="tab-pane fade">
-            <h3>Menu 1</h3>
-            <p>Some content in menu 1.</p>
+
+          <div id="addTenant" class="tab-pane fade col-12">
+            {% include 'dashboards/addTenant.html' %}
           </div>
-          <div id="menu2" class="tab-pane fade">
+
+          <div id="safety" class="tab-pane fade">
             <h3>Menu 2</h3>
             <p>Some content in menu 2.</p>
           </div>
+
+          <div id="view_tenant" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p>
+          </div>
+
+          <div id="manage_building" class="tab-pane fade">
+            <h3>Menu 2</h3>
+            <p>Some content in menu 2.</p>
+          </div>
+
         </div>
 
           </div>
@@ -41,9 +55,17 @@
         </div>
       </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+     crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+     crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" 
+    crossorigin="anonymous"></script>
 
   </body>
 </html>

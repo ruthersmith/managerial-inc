@@ -48,6 +48,7 @@ def createManager():
 
 @app.route("/manager/create",methods = ["POST"])
 def managerDashboard():
+    data = {}
     #check to see if we are creating a manager 
     creatingManager = int(request.form.get("createManager"))
     if creatingManager == 1:
@@ -62,7 +63,13 @@ def managerDashboard():
         return"<h1>ERROR:Failed to authenticate</h1>"
     else:
         session['manager_info'] = manager[0]
+        data['manager_info'] = manager[0]
         return render_template('dashboards/manager_dashboard.html')
+    
+@app.route("/manager/addTenant",methods = ["POST"])
+def addTenant():
+    
+    return "adding tenant"
     
 
 

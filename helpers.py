@@ -39,6 +39,9 @@ def authenticateManager(db,managerId,password):
         rows.append(row)
     
     return rows
+
+def addTenant(db,request):
+    print("adding tenant")
     
     
     
