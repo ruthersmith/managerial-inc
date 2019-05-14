@@ -5,6 +5,8 @@ Created on Mon May 13 12:28:31 2019
 @author: bercy
 created for the landlord/tenant application
 """
+testGetTenant = False
+testCreateManager = False
 
 def createManager(db,request):
     firstName = request.form.get("manager_fname")
@@ -27,7 +29,12 @@ def createManager(db,request):
     result =  db.execute(sql,{"firstName":firstName, "password":password})
     for row in result:
         rows.append(row)
-    return rows[0]
+    
+    if(testCreateManager):
+        print(rows[0][0])
+        print(rows)
+        
+    return rows[0][0]
 
 def authenticateManager(db,managerId,password):
     rows = []
@@ -42,8 +49,8 @@ def authenticateManager(db,managerId,password):
 
 def addTenant(db,request,session):
     password	= request.form.get("tenant_pass")	
-    firstname	= request.form.get("tenant_fname")	
-    lastname  = request.form.get("tenant_lname")		
+    firstname	= request.form.get("tenant_fname").capitalize()	
+    lastname  = request.form.get("tenant_lname").capitalize()		
     roomnumber = int(request.form.get("tenant_room"))	
     #we have to get manager id  from session
     managerid = int(session['manager_info'][0])
@@ -57,6 +64,20 @@ def addTenant(db,request,session):
                {"password":password,"firstname":firstname,"lastname":lastname,
                 "roomnumber":roomnumber,"managerid":managerid,"username":username})
     db.commit()
+    
+def getTenants(db,managerid):
+    rows = []
+    sql = "SELECT * FROM tenants where managerid = :managerid"
+    result = db.execute(sql,{"managerid":int(managerid)})
+    for row in result:
+        rows.append(row)
+    
+    if(testGetTenant):   
+        print("getting rows")
+        print(rows)
+        print(managerid)
+    return rows
+    
     
     
     

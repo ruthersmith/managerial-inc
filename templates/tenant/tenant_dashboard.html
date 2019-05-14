@@ -2,8 +2,7 @@
 
 {%block list %}
   <li class="active pr-1 pb-2 " active><a data-toggle="tab" href="#home">Home</a></li>
-  <li class="pr-1 pb-2"><a data-toggle="tab" href="#example">Report a Maintenace Issuer</a></li>
-  <li class="pr-1 pb-2"><a data-toggle="tab" href="#example">Make complain</a></li>
+  <li class="pr-1 pb-2"><a data-toggle="tab" href="#notifyManager">Contact building manager</a></li>
   <li class="pr-1 pb-2"><a data-toggle="tab" href="#example">Pay bill</a></li>
  {%endblock%}
 
@@ -11,7 +10,18 @@
    <div id="home" class="tab-pane fade in show active">
      {% include 'dashboards/manager_home.html' %}
    </div>
-   <div id="example" class="tab-pane fade col-12">
-     <p>example</p>
+
+   <div id="view_tenant" class="tab-pane fade">
+     <p>example placeholder</p>
+   </div>
+
+   <div id="notifyManager" class="tab-pane fade col-12">
+       <form class="" action="index.html" method="post">
+         <div class="form-group">
+           <label for="Textarea1">Make Complaint or Report Issue:</label>
+             <textarea class="form-control" id="Textarea1" rows="6"></textarea>
+         </div>
+         <button type="submit" class="btn btn-secondary offset-5">Submit</button>
+       </form>
    </div>
  {%endblock%}

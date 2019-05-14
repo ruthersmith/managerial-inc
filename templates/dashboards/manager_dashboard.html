@@ -1,4 +1,9 @@
 {% extends "dashboards/dashboard_layout.html" %}
+{%block managerInfo%}
+  <h3>ManagerId</h3>
+ <h4 style="text-align:center">{{data['manager_info'][0]}}</h4>
+{%endblock%}
+
 
 {%block list %}
   <li class="active pr-1 pb-2 " active><a data-toggle="tab" href="#home">Home</a></li>
@@ -15,13 +20,19 @@
   <div id="addTenant" class="tab-pane fade col-12">
     {% include 'dashboards/addTenant.html' %}
   </div>
-  <div id="safety" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
+
+  <div id="safety" class="tab-pane fade col-12">
+      <form class="" action="index.html" method="post">
+        <div class="form-group">
+          <label for="Textarea1">Attention All Tenants:</label>
+            <textarea class="form-control" id="Textarea1" rows="6"></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary offset-5">Submit</button>
+      </form>
   </div>
+
   <div id="view_tenant" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
+    {% include 'dashboards/viewTenant.html' %}
   </div>
   <div id="manage_building" class="tab-pane fade">
     <h3>Menu 2</h3>

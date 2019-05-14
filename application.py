@@ -64,7 +64,8 @@ def managerDashboard():
     else:
         session['manager_info'] = manager[0]
         data['manager_info'] = manager[0]
-        return render_template('dashboards/manager_dashboard.html')
+        data['tenants_info'] = helpers.getTenants(db,manager[0][0])
+        return render_template('dashboards/manager_dashboard.html',data=data)
     
 @app.route("/manager/addTenant",methods = ["POST"])
 def addTenant():
@@ -73,7 +74,9 @@ def addTenant():
 
 @app.route("/tenant/home",methods = ["POST"])
 def tenantDashboard():
-    return render_template('tenant/tenant_dashboard.html')
+    data = {}
+    
+    return render_template('tenant/tenant_dashboard.html',data=data)
     
 
 
