@@ -1,0 +1,40 @@
+<h1>Add New Tenant</h1>
+<form class="" action="{{url_for('addTenant')}}" method="post">
+    <div class="form-group">
+
+      <div class="row">
+        <div class="col-6">
+          <label for="tenant_fname">First name</label>
+          <input type="" class="form-control" name="tenant_fname" id="tenant_fname"
+           aria-describedby="tenant first name" placeholder="Enter first name">
+        </div>
+
+        <div class="col-6">
+          <label for="tenant_lname">Last name</label>
+          <input type="" class="form-control" name="tenant_lname" id="tenant_lname"
+           aria-describedby="tenant last name" placeholder="Enter last name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">Assign Room Number</label>
+        <input type="number"  name="tenant_room" class="form-control" id="exampleInputPassword1"
+        placeholder="Assign room number">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">username</label>
+        <input type="number"  name="tenant_uname" class="form-control" id="exampleInputPassword1"
+        placeholder="Ask user enter user name">
+      </div>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1">password</label>
+        <input type="number"  name="tenant_pass" class="form-control" id="exampleInputPassword1"
+        placeholder="Ask user to enter password">
+      </div>
+
+      <button type="submit" class="btn btn-secondary offset-5">Submit</button>
+    </div>
+
+</form>

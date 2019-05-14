@@ -1,14 +1,14 @@
 {% extends "front_layout.html" %}
 {%block form%}
-<form class="form-container">
+<form class="form-container" action="{{url_for('tenantDashboard')}}" method="post">
     <div class="form-group">
-      <label for="tenant_id">Tenant Id</label>
-      <input type="" class="form-control" name="tenant_id" id="tenant_id"
-       aria-describedby="tenant id" placeholder="Enter Tenant id">
+      <label for="tenant_username">Username</label>
+      <input type="" class="form-control" name="tenant_username" id="tenant_username"
+       aria-describedby="tenant username" placeholder="Enter username">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Pin Number</label>
-      <input type="password" name="tenant_pin" class="form-control" id="exampleInputPassword1" placeholder="Pin Number">
+      <label for="exampleInputPassword1">password</label>
+      <input type="password" name="tenant_pass" class="form-control" id="exampleInputPassword1" placeholder="Enter password">
     </div>
     <button type="submit" class="btn btn-primary btn-block">Submit</button>
   </form>
