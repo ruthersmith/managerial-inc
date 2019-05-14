@@ -3,3 +3,15 @@
   <li>{{tenant[2]}} {{tenant[3]}} room:{{tenant[4]}}</li>
 </a>
 {%endfor%}
+
+{% if data['tenants_info']|length < 1 %}
+<div class="">
+   <a data-toggle="tab" href="#addTenant">
+
+    <h6 style="">
+      No Tenants Found Add Tenants
+    </h6>
+
+    </a>
+</div>
+{% endif %}

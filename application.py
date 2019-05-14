@@ -74,10 +74,23 @@ def addTenant():
 
 @app.route("/tenant/home",methods = ["POST"])
 def tenantDashboard():
+    tenant = helpers.authenticateTenant(db,request)
+    
+    if(len(tenant) < 1):
+        return"ERROR:FAILED TO AUTHENTICATE"
+        
     data = {}
-    
+    data['general_notification'] = helpers.getTenantMsg(db,tenant[0][0])
+    session['user_info'] = tenant[0]
     return render_template('tenant/tenant_dashboard.html',data=data)
+
+
+@app.route("/tenant/msg",methods = ["POST"])
+def messageAllTenants():
+    helpers.messageTenants(db,request,None)
+    return("messaging tenants")
     
+
 
 
 

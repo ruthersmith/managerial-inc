@@ -77,7 +77,40 @@ def getTenants(db,managerid):
         print(rows)
         print(managerid)
     return rows
+
+def messageTenants(db,request,tenantid):
+    notification = request.form.get("notification")
     
+    sql = "INSERT INTO NotificationToTenant(notification,tenantid ) "
+    sql += "VALUES(:notification,:tenantid)"
+    db.execute(sql,{"notification":notification,"tenantid":tenantid})
+    db.commit()
+    
+def getTenantMsg(db,tenantid):
+    rows = []
+    sql = "SELECT notification FROM NotificationToTenant where tenantid is Null "
+    sql += "or tenantid = :tenantid"
+    result = db.execute(sql,{"tenantid":tenantid})
+    
+    for row in result:
+        rows.append(row)
+    
+    print(rows)
+    return rows
+
+def authenticateTenant(db,request):
+    rows = []
+    username = request.form.get("tenant_username")
+    password = request.form.get("tenant_pass")
+    sql = "SELECT * FROM tenants where username = :username and password = :password"
+    result = db.execute(sql,{"username":username,"password":password})
+    for row in result:
+        rows.append(row)
+    
+    return rows
+    
+    
+        
     
     
     

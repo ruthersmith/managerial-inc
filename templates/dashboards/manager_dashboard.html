@@ -22,10 +22,10 @@
   </div>
 
   <div id="safety" class="tab-pane fade col-12">
-      <form class="" action="index.html" method="post">
+      <form class="" action="{{url_for('messageAllTenants')}}" method="post">
         <div class="form-group">
           <label for="Textarea1">Attention All Tenants:</label>
-            <textarea class="form-control" id="Textarea1" rows="6"></textarea>
+            <textarea class="form-control" name="notification" id="Textarea1" rows="6"></textarea>
         </div>
         <button type="submit" class="btn btn-secondary offset-5">Submit</button>
       </form>
@@ -35,7 +35,7 @@
     {% include 'dashboards/viewTenant.html' %}
   </div>
   <div id="manage_building" class="tab-pane fade">
-    <h3>Menu 2</h3>
-    <p>Some content in menu 2.</p>
+
+    <p>Coming Soon</p>
   </div>
 {%endblock%}
