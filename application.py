@@ -68,8 +68,12 @@ def managerDashboard():
     
 @app.route("/manager/addTenant",methods = ["POST"])
 def addTenant():
-    
+    helpers.addTenant(db,request,session)
     return "adding tenant"
+
+@app.route("/tenant/home",methods = ["POST"])
+def tenantDashboard():
+    return render_template('tenant/tenant_dashboard.html')
     
 
 

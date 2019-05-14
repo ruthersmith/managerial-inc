@@ -1,0 +1,17 @@
+{% extends "dashboards/dashboard_layout.html" %}
+
+{%block list %}
+  <li class="active pr-1 pb-2 " active><a data-toggle="tab" href="#home">Home</a></li>
+  <li class="pr-1 pb-2"><a data-toggle="tab" href="#example">Report a Maintenace Issuer</a></li>
+  <li class="pr-1 pb-2"><a data-toggle="tab" href="#example">Make complain</a></li>
+  <li class="pr-1 pb-2"><a data-toggle="tab" href="#example">Pay bill</a></li>
+ {%endblock%}
+
+ {%block listTarget%}
+   <div id="home" class="tab-pane fade in show active">
+     {% include 'dashboards/manager_home.html' %}
+   </div>
+   <div id="example" class="tab-pane fade col-12">
+     <p>example</p>
+   </div>
+ {%endblock%}

@@ -40,9 +40,23 @@ def authenticateManager(db,managerId,password):
     
     return rows
 
-def addTenant(db,request):
-    print("adding tenant")
+def addTenant(db,request,session):
+    password	= request.form.get("tenant_pass")	
+    firstname	= request.form.get("tenant_fname")	
+    lastname  = request.form.get("tenant_lname")		
+    roomnumber = int(request.form.get("tenant_room"))	
+    #we have to get manager id  from session
+    managerid = int(session['manager_info'][0])
+    username	= request.form.get("tenant_uname")	
     
+    
+    sql = "INSERT INTO tenants(password,firstname,lastname,roomnumber,managerid,username)"
+    sql +=" VALUES(:password,:firstname,:lastname,:roomnumber,:managerid,:username)"
+    
+    db.execute(sql,
+               {"password":password,"firstname":firstname,"lastname":lastname,
+                "roomnumber":roomnumber,"managerid":managerid,"username":username})
+    db.commit()
     
     
     
