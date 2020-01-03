@@ -1,3 +1,3 @@
 # Project 1
 
-Web Programming with Python and JavaScript
+The Goal of this project was to facilitate and streamline communication between tenants and landlords
